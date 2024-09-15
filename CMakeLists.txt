@@ -12,10 +12,16 @@ set(LIBRARIES "LibFoo" "LibBar")
 
 
 # Global CMake variables are set here
-set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+set(CMAKE_PREFIX_PATH "/home/duong/Qt/6.7.2/gcc_64")
+
+#already installed pakage
+find_package(Qt6 COMPONENTS
+        Core
+        REQUIRED)
 #----------------------------------------------------#
 
 option(USE_CPM "Whether to use CPM." ON)
