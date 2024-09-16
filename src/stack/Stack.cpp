@@ -25,6 +25,16 @@ const char* StackErrorData::message() const
     return Message(err_);
 }
 
+string Stack::StackChanged()
+{
+    return "stackChanged";
+}
+
+string Stack::StackError()
+{
+    return "error";
+}
+
 
 //Implementation of stack
  class Stack::StackImpl
@@ -54,7 +64,7 @@ Stack::StackImpl::StackImpl(const Stack& s)
 void Stack::StackImpl::push(double d, bool suppressChangeEvent)
 {
     stack_.push_back(d);
-    if(!suppressChangeEvent) parent_.raise(Stack::StackChanged, nullptr);
+    if(!suppressChangeEvent) parent_.raise(Stack::StackChanged(), nullptr);
 
     return;
 }
@@ -63,7 +73,7 @@ double Stack::StackImpl::pop(bool suppressChangeEvent)
 {
     if( stack_.empty() )
     {
-        parent_.raise(Stack::StackError,
+        parent_.raise(Stack::StackError(),
             std::make_shared<StackErrorData>(StackErrorData::ErrorConditions::Empty));
 
         throw Exception{StackErrorData::Message(StackErrorData::ErrorConditions::Empty)};
@@ -72,7 +82,7 @@ double Stack::StackImpl::pop(bool suppressChangeEvent)
     {
         auto val = stack_.back();
         stack_.pop_back();
-        if(!suppressChangeEvent) parent_.raise(Stack::StackChanged, nullptr);
+        if(!suppressChangeEvent) parent_.raise(Stack::StackChanged(), nullptr);
         return val;
     }
 }
@@ -81,7 +91,7 @@ void Stack::StackImpl::swapTop()
 {
     if( stack_.size() < 2 )
     {
-        parent_.raise(Stack::StackError,
+        parent_.raise(Stack::StackError(),
             std::make_shared<StackErrorData>(StackErrorData::ErrorConditions::TooFewArguments));
 
         throw Exception{StackErrorData::Message(StackErrorData::ErrorConditions::TooFewArguments)};
@@ -95,7 +105,7 @@ void Stack::StackImpl::swapTop()
         stack_.push_back(first);
         stack_.push_back(second);
 
-        parent_.raise(Stack::StackChanged, nullptr);
+        parent_.raise(Stack::StackChanged(), nullptr);
     }
 
     return;
@@ -122,7 +132,7 @@ void Stack::StackImpl::clear()
 {
     stack_.clear();
 
-    parent_.raise(Stack::StackChanged, nullptr);
+    parent_.raise(Stack::StackChanged(), nullptr);
 
     return;
 }
@@ -182,8 +192,8 @@ void Stack::clear() const
 Stack::Stack()
 {
     pimpl_ = std::make_unique<StackImpl>(*this);
-    registerEvent(StackChanged);
-    registerEvent(StackError);
+    registerEvent(StackChanged());
+    registerEvent(StackError());
 }
 
 Stack::~Stack()

@@ -48,8 +48,8 @@ public:
     size_t size() const;
     void clear() const;
 
-    static const std::string StackChanged;
-    static const std::string StackError;
+    static string StackChanged();
+    static string StackError();
 
 private:
     Stack();
