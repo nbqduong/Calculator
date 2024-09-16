@@ -8,7 +8,7 @@ project(
 
 # Project/Library Names
 set(EXECUTABLE_NAME "main")
-set(LIBRARIES "LibFoo" "LibBar")
+set(LIBRARIES utilities stack )
 
 
 # Global CMake variables are set here
@@ -18,7 +18,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 set(CMAKE_PREFIX_PATH "/home/duong/Qt/6.7.2/gcc_64")
 
-#already installed pakage
+# Local packages
 find_package(Qt6 COMPONENTS
         Core
         REQUIRED)
@@ -36,7 +36,7 @@ option(ENABLE_CLANG_TIDY "Enable to add clang tidy." ON)
 
 option(ENABLE_SANITIZE_ADDR "Enable address sanitize." OFF)
 option(ENABLE_SANITIZE_UNDEF "Enable undefined sanitize." OFF)
-option(ENABLE_SANITIZE_LEAK "Enable leak sanitize (Gcc/Clang only)." OFF)
+option(ENABLE_SANITIZE_LEAK "Enable leak sanitize (Gcc/Clang only)." ON)
 option(ENABLE_SANITIZE_THREAD "Enable thread sanitize (Gcc/Clang only)." OFF)
 
 option(ENABLE_CLANG_FORMAT "Enable to add clang-format." OFF)
@@ -82,11 +82,6 @@ endif()
 if(USE_CPM)
     message(STATUS "Using CPM")
     include(CPM)
-#    cpmaddpackage("gh:nlohmann/json#v3.11.3")
-#    cpmaddpackage("gh:fmtlib/fmt#9.1.0")
-#    cpmaddpackage("gh:gabime/spdlog#v1.13.0")
-#    cpmaddpackage("gh:jarro2783/cxxopts#v3.1.1")
-#    cpmaddpackage("gh:gabime/spdlog#v1.14.1")
 
     if(ENABLE_TESTING)
         cpmaddpackage("gh:catchorg/Catch2#v3.5.3")

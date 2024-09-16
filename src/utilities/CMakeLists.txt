@@ -1,12 +1,17 @@
 #-------------------DEFINE ZONE----------------------#
 #this library
-set(LIBRARY_NAME "LibBar")
+set(LIBRARY_NAME "utilities")
 set(LIBRARY_INCLUDES "./" "${CMAKE_BINARY_DIR}/configured_files/include")
 
 set(LIBRARY_SOURCES
-        "${CMAKE_CURRENT_SOURCE_DIR}/bar.cc")
+        Observer.cpp
+        Publisher.cpp
+)
 set(LIBRARY_HEADERS
-        "${CMAKE_CURRENT_SOURCE_DIR}/bar.h")
+        Observer.h
+        Publisher.h
+        Exception.h
+)
 
 #include more
 set(LIBRARIES_TO_LINK )
