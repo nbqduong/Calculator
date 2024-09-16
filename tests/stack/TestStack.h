@@ -7,6 +7,8 @@
 
 #include "Stack.h"
 #include <catch2/catch_test_macros.hpp>
+#include <catch2/catch_approx.hpp>
+#include <catch2/matchers/catch_matchers_floating_point.hpp>
 
 using std::vector;
 using std::vector;
@@ -56,9 +58,9 @@ StackErrorObserver::StackErrorObserver(string name)
 
 void StackErrorObserver::notifyImpl(const std::any& data)
 {
-    auto p = std::any_cast<Cal::StackErrorData>(data);
-    messages_.push_back(p.message());
-    errors_.push_back(p.error());
+    auto p = std::any_cast<std::shared_ptr<Cal::StackErrorData>>(data);
+    messages_.push_back(p->message());
+    errors_.push_back(p->error());
 
     return;
 }
