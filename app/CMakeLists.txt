@@ -1,6 +1,9 @@
 #-------------------DEFINE ZONE----------------------#
 set(APP_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp")
-set(LIBRARIES stack Qt::Core)
+set(LIBRARIES
+        controller
+        Qt::Core
+)
 #----------------------------------------------------#
 
 add_executable(${EXECUTABLE_NAME} ${APP_SOURCES})

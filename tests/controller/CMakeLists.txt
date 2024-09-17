@@ -1,14 +1,14 @@
 #-------------------DEFINE ZONE----------------------#
 #this library
-set(LIBRARY_NAME "UnitTestStack")
+set(LIBRARY_NAME "UnitTestController")
 set(LIBRARY_INCLUDES "./" "${CMAKE_BINARY_DIR}/configured_files/include")
 
 set(LIBRARY_SOURCES
-        TestStack.cpp
+        ControllerTest.cpp
 )
 
 #include more
-set(LIBRARIES_TO_LINK stack)
+set(LIBRARIES_TO_LINK controller)
 #----------------------------------------------------#
 
 include(Catch)
@@ -16,7 +16,6 @@ include(Catch)
 add_executable(${LIBRARY_NAME} ${LIBRARY_SOURCES})
 target_link_libraries(${LIBRARY_NAME} PUBLIC ${LIBRARIES_TO_LINK})
 target_link_libraries(${LIBRARY_NAME} PRIVATE Catch2::Catch2WithMain)
-
 
 if(${ENABLE_WARNINGS})
     target_set_warnings(

@@ -69,7 +69,7 @@ TEST_CASE("Stack push top", "[stack]")
 }
 
 
-TEST_CASE("Stack error", "[stack]")
+TEST_CASE("Stack error message", "[stack]")
 {
     Cal::Stack& stack = Cal::Stack::Instance();
     stack.clear();

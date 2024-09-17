@@ -16,6 +16,8 @@ using std::string;
 using std::shared_ptr;
 using std::unique_ptr;
 
+
+//Dummy observer class
 class StackChangedObserver : public Cal::Observer
 {
 public:
@@ -38,6 +40,7 @@ void StackChangedObserver::notifyImpl(const std::any&)
     ++changeCount_;
 }
 
+//Dummy observer class
 class StackErrorObserver : public Cal::Observer
 {
 public:
