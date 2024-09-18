@@ -21,6 +21,7 @@ set(CMAKE_PREFIX_PATH "/home/duong/Qt/6.7.2/gcc_64")
 # Local packages
 find_package(Qt6 COMPONENTS
         Core
+        Widgets
         REQUIRED)
 #----------------------------------------------------#
 
@@ -82,7 +83,7 @@ endif()
 if(USE_CPM)
     message(STATUS "Using CPM")
     include(CPM)
-
+    cpmaddpackage("gh:fmtlib/fmt#9.1.0")
     if(ENABLE_TESTING)
         cpmaddpackage("gh:catchorg/Catch2#v3.5.3")
         list(APPEND CMAKE_MODULE_PATH ${Catch2_SOURCE_DIR}/extras)

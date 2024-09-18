@@ -9,7 +9,7 @@
 #include "CommandManager.h"
 #include "Exception.h"
 #include "ICommand.h"
-
+#include "UserInterface.h"
 #include <regex>
 
 using std::set;
@@ -62,7 +62,7 @@ void Controller::ControllerImpl::executeCommand(const string& command)
         else
         {
             auto t = std::string("Command "+command+" is not a known command");
-            // ui_.postMessage(t);
+            ui_.postMessage(t);
         }
     }
 
@@ -95,7 +95,7 @@ void Controller::ControllerImpl::printHelp() const
         help += CommandFactory::Instance().helpMessage(i) + "\n";
     }
 
-    // ui_.postMessage( help );
+    ui_.postMessage( help );
 
     return;
 }

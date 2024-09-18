@@ -1,25 +1,30 @@
 #-------------------DEFINE ZONE----------------------#
 #this library
-set(LIBRARY_NAME "controller")
+set(LIBRARY_NAME "ui")
 set(LIBRARY_INCLUDES "./" "${CMAKE_BINARY_DIR}/configured_files/include")
 
 set(LIBRARY_SOURCES
-        Command.cpp
-        ICommand.cpp
-        CommandFactory.cpp
-        CommandManager.cpp
-        Controller.cpp
+        LookAndFeel.cpp
+        CommandButton.cpp
+        InputWidget.cpp
+        Display.cpp
+        GuiModel.cpp
+        MainWindow.cpp
 )
 set(LIBRARY_HEADERS
-        Command.h
-        ICommand.h
-        CommandFactory.h
-        CommandManager.h
-        Controller.h
+        LookAndFeel.h
+        CommandButton.h
+        InputWidget.h
+        Display.h
+        GuiModel.h
+        MainWindow.h
+        UserInterface.h
 )
 
 #include more
-set(LIBRARIES_TO_LINK utilities stack ui)
+set(CMAKE_PREFIX_PATH "/home/duong/Qt/6.7.2/gcc_64")
+
+set(LIBRARIES_TO_LINK stack utilities Qt6::Widgets fmt)
 #----------------------------------------------------#
 
 add_library(${LIBRARY_NAME} STATIC ${LIBRARY_SOURCES} ${LIBRARY_HEADERS})
