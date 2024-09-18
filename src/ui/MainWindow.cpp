@@ -25,33 +25,7 @@ using std::string_view;
 
 namespace Cal {
 
-class MainWindow::MainWindowImpl : public QWidget
-{
-    Q_OBJECT
-public:
-    explicit MainWindowImpl(MainWindow* parent);
-    void showMessage(string_view m);
-    void stackChanged();
-    void setupFinalButtons();
-    void addCommandButton(const string& dispPrimaryCmd, const string& primaryCmd, const string& dispShftCmd, const string& shftCmd);
 
-public slots:
-    void onCommandEntered(std::string cmd);
-    void onShowMessage(std::string m);
-
-private slots:
-    void onProcedure();
-
-private:
-    void connectInputToModel();
-    void doLayout();
-
-    MainWindow& parent_;
-    int nLinesStack_;
-    Display* display_;
-    InputWidget* inputWidget_;
-    GuiModel* guiModel_;
-};
 
 MainWindow::MainWindowImpl::MainWindowImpl(MainWindow* parent)
 : QWidget{parent}
@@ -171,3 +145,5 @@ void MainWindow::execute()
 }
 
 }
+
+#include "MainWindow.moc"

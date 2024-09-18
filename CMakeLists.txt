@@ -23,6 +23,7 @@ find_package(Qt6 COMPONENTS
         Core
         Widgets
         REQUIRED)
+set(CMAKE_AUTOMOC ON)
 #----------------------------------------------------#
 
 option(USE_CPM "Whether to use CPM." ON)

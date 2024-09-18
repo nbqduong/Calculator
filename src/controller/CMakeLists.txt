@@ -16,6 +16,7 @@ set(LIBRARY_HEADERS
         CommandFactory.h
         CommandManager.h
         Controller.h
+        AppObservers.h
 )
 
 #include more

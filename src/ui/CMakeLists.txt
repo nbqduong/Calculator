@@ -24,7 +24,9 @@ set(LIBRARY_HEADERS
 #include more
 set(CMAKE_PREFIX_PATH "/home/duong/Qt/6.7.2/gcc_64")
 
-set(LIBRARIES_TO_LINK stack utilities Qt6::Widgets fmt)
+set(LIBRARIES_TO_LINK stack utilities Qt6::Widgets Qt6::Core fmt)
+
+#target_sources(${LIBRARY_NAME} PRIVATE InputWidget.h)
 #----------------------------------------------------#
 
 add_library(${LIBRARY_NAME} STATIC ${LIBRARY_SOURCES} ${LIBRARY_HEADERS})
@@ -52,3 +54,6 @@ endif()
 if(${ENABLE_CLANG_TIDY})
     add_clang_tidy_to_target(${LIBRARY_NAME})
 endif()
+
+
+#qt_add_moc(MyQtApp CommandButton.h)

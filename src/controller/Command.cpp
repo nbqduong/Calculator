@@ -44,6 +44,12 @@ void Command::checkPreconditionsImpl() const
     return;
 }
 
+BinaryCommand::BinaryCommand(const BinaryCommand& rhs)
+: Command(rhs)
+, top_{rhs.top_}
+, next_{rhs.next_}
+{ }
+
 void BinaryCommand::checkPreconditionsImpl() const
 {
     if(Stack::Instance().size() < 2)

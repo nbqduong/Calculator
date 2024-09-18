@@ -3,8 +3,10 @@
 //
 
 #include "CommandFactory.h"
-#include "Exception.h"
 #include "Command.h"
+#include "Exception.h"
+#include "ICommand.h"
+#include "UserInterface.h"
 namespace Cal
 {
 
@@ -69,38 +71,38 @@ CommandFactory& CommandFactory::Instance()
     return instance;
 }
 
-// void RegisterCoreCommands(UserInterface& ui)
-// {
-//     auto& cr = CommandFactory::Instance();
-//     try
-//     {
-//         cr.registerCommand( "swap", MakeCommandPtr<SwapTopOfStack>() );
-//         cr.registerCommand( "drop", MakeCommandPtr<DropTopOfStack>() );
-//         cr.registerCommand( "clear", MakeCommandPtr<ClearStack>() );
-//         cr.registerCommand( "+", MakeCommandPtr<Add>() );
-//         cr.registerCommand( "-", MakeCommandPtr<Subtract>() );
-//         cr.registerCommand("*",
-//             MakeCommandPtr<BinaryCommandAlternative>("Replace first two elements on the stack with their product",
-//             [](double d, double f){ return d * f; })
-//         );
-//         cr.registerCommand( "/", MakeCommandPtr<Divide>() );
-//         cr.registerCommand( "pow", MakeCommandPtr<Power>() );
-//         cr.registerCommand( "root", MakeCommandPtr<Root>() );
-//         cr.registerCommand( "sin", MakeCommandPtr<Sine>() );
-//         cr.registerCommand( "cos", MakeCommandPtr<Cosine>() );
-//         cr.registerCommand( "tan", MakeCommandPtr<Tangent>() );
-//         cr.registerCommand( "arcsin", MakeCommandPtr<Arcsine>() );
-//         cr.registerCommand( "arccos", MakeCommandPtr<Arccosine>() );
-//         cr.registerCommand( "arctan", MakeCommandPtr<Arctangent>() );
-//         cr.registerCommand( "neg", MakeCommandPtr<Negate>() );
-//         cr.registerCommand( "dup", MakeCommandPtr<Duplicate>() );
-//     }
-//     catch(Exception& e)
-//     {
-//         ui.postMessage( e.what() );
-//     }
-//
-//     return;
-// }
+void RegisterCoreCommands(UserInterface& ui)
+{
+    auto& cr = CommandFactory::Instance();
+    try
+    {
+        cr.registerCommand( "swap", MakeCommandPtr<SwapTopOfStack>() );
+        cr.registerCommand( "drop", MakeCommandPtr<DropTopOfStack>() );
+        cr.registerCommand( "clear", MakeCommandPtr<ClearStack>() );
+        cr.registerCommand( "+", MakeCommandPtr<Add>() );
+        cr.registerCommand( "-", MakeCommandPtr<Subtract>() );
+        // cr.registerCommand("*",
+        //     MakeCommandPtr<BinaryCommandAlternative>("Replace first two elements on the stack with their product",
+        //     [](double d, double f){ return d * f; })
+        // );
+        cr.registerCommand( "/", MakeCommandPtr<Divide>() );
+        cr.registerCommand( "pow", MakeCommandPtr<Power>() );
+        cr.registerCommand( "root", MakeCommandPtr<Root>() );
+        cr.registerCommand( "sin", MakeCommandPtr<Sine>() );
+        cr.registerCommand( "cos", MakeCommandPtr<Cosine>() );
+        cr.registerCommand( "tan", MakeCommandPtr<Tangent>() );
+        cr.registerCommand( "arcsin", MakeCommandPtr<Arcsine>() );
+        cr.registerCommand( "arccos", MakeCommandPtr<Arccosine>() );
+        cr.registerCommand( "arctan", MakeCommandPtr<Arctangent>() );
+        cr.registerCommand( "neg", MakeCommandPtr<Negate>() );
+        cr.registerCommand( "dup", MakeCommandPtr<Duplicate>() );
+    }
+    catch(Exception& e)
+    {
+        ui.postMessage( e.what() );
+    }
+
+    return;
+}
 
  }

@@ -6,13 +6,17 @@
 #define MAINWINDOW_H
 
 
+#include "Display.h"
+#include "GuiModel.h"
+#include "InputWidget.h"
 #include "UserInterface.h"
 
 
+#include "Stack.h"
 #include <QMainWindow>
 #include <string>
 #include <string_view>
-#include "Stack.h"
+
 
 namespace Cal {
 
@@ -39,6 +43,35 @@ public:
 private:
 
     MainWindowImpl* pimpl_;
+};
+
+
+class MainWindow::MainWindowImpl : public QWidget
+{
+    Q_OBJECT
+public:
+    explicit MainWindowImpl(MainWindow* parent);
+    void showMessage(string_view m);
+    void stackChanged();
+    void setupFinalButtons();
+    void addCommandButton(const string& dispPrimaryCmd, const string& primaryCmd, const string& dispShftCmd, const string& shftCmd);
+
+    public slots:
+        void onCommandEntered(std::string cmd);
+    void onShowMessage(std::string m);
+
+    private slots:
+
+
+private:
+    void connectInputToModel();
+    void doLayout();
+
+    MainWindow& parent_;
+    int nLinesStack_;
+    Display* display_;
+    InputWidget* inputWidget_;
+    GuiModel* guiModel_;
 };
 
 }
