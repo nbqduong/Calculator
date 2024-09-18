@@ -2,13 +2,16 @@
 // Created by duong on 18/09/2024.
 //
 
+#include "InputWidgetImpl.h"
+
+
+#include "CommandButton.h"
 #include "InputWidget.h"
-#include <vector>
+#include "LookAndFeel.h"
+#include <QGridLayout>
 #include <QSize>
 #include <iostream>
-#include "CommandButton.h"
-#include <QGridLayout>
-#include "LookAndFeel.h"
+#include <vector>
 
 using std::cout;
 using std::endl;
@@ -300,4 +303,4 @@ void InputWidget::setupFinalButtons()
 
 }
 
-#include "InputWidget.moc"
+#include "InputWidgetImpl.moc"

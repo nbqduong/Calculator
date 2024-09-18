@@ -6,10 +6,10 @@ set(LIBRARY_INCLUDES "./" "${CMAKE_BINARY_DIR}/configured_files/include")
 set(LIBRARY_SOURCES
         LookAndFeel.cpp
         CommandButton.cpp
-        InputWidget.cpp
         Display.cpp
         GuiModel.cpp
-        MainWindow.cpp
+        InputWidgetImpl.cpp
+        MainWindowImpl.cpp
 )
 set(LIBRARY_HEADERS
         LookAndFeel.h
@@ -19,6 +19,8 @@ set(LIBRARY_HEADERS
         GuiModel.h
         MainWindow.h
         UserInterface.h
+        InputWidgetImpl.h
+        MainWindowImpl.h
 )
 
 #include more

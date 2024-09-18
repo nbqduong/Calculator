@@ -45,26 +45,26 @@ public:
       // called to toggle the calculator's shift state
       void onShift();
 
-  // call this slot when a new character of input is available
-  void onCharacterEntered(char c);
+      // call this slot when a new character of input is available
+      void onCharacterEntered(char c);
 
-  // call this slot when enter is pressed. Does nothing if input is invalid else enters number on stack
-  // and clears input
-  void onEnter();
+      // call this slot when enter is pressed. Does nothing if input is invalid else enters number on stack
+      // and clears input
+      void onEnter();
 
-  // call this slot to backspace during input entry
-  void onBackspace();
+      // call this slot to backspace during input entry
+      void onBackspace();
 
-  // call this slot when plus/minus is entered
-  void onPlusMinus();
+      // call this slot when plus/minus is entered
+      void onPlusMinus();
 
-  // called when commands are entered
-  void onCommandEntered(std::string primaryCmd, std::string secondaryCmd);
+      // called when commands are entered
+      void onCommandEntered(std::string primaryCmd, std::string secondaryCmd);
 
   signals:
       void modelChanged();
-  void commandEntered(std::string s);
-  void errorDetected(std::string s);
+      void commandEntered(std::string s);
+      void errorDetected(std::string s);
 
 private:
   std::unique_ptr<GuiModelImpl> pimpl_;

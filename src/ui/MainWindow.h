@@ -38,42 +38,12 @@ public:
     // line undo, redo, proc from the bottom up
     // Buttons are reparented to MainWindow
     void addCommandButton(const std::string& dispPrimaryCmd, const std::string& primaryCmd,
-        const std::string& dispShftCmd, const std::string& shftCmd);
+    const std::string& dispShftCmd, const std::string& shftCmd);
 
 private:
 
     MainWindowImpl* pimpl_;
 };
-
-
-class MainWindow::MainWindowImpl : public QWidget
-{
-    Q_OBJECT
-public:
-    explicit MainWindowImpl(MainWindow* parent);
-    void showMessage(string_view m);
-    void stackChanged();
-    void setupFinalButtons();
-    void addCommandButton(const string& dispPrimaryCmd, const string& primaryCmd, const string& dispShftCmd, const string& shftCmd);
-
-    public slots:
-        void onCommandEntered(std::string cmd);
-    void onShowMessage(std::string m);
-
-    private slots:
-
-
-private:
-    void connectInputToModel();
-    void doLayout();
-
-    MainWindow& parent_;
-    int nLinesStack_;
-    Display* display_;
-    InputWidget* inputWidget_;
-    GuiModel* guiModel_;
-};
-
 }
 
 

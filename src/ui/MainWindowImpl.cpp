@@ -2,6 +2,7 @@
 // Created by duong on 18/09/2024.
 //
 
+#include "MainWindowImpl.h"
 #include "MainWindow.h"
 #include "MainWindow.h"
 #include "Display.h"
@@ -146,4 +147,4 @@ void MainWindow::execute()
 
 }
 
-#include "MainWindow.moc"
+#include "MainWindowImpl.moc"
