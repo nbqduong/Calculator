@@ -106,4 +106,20 @@ void UnaryCommand::undoImpl() noexcept
     return;
 }
 
+void PluginCommand::checkPreconditionsImpl() const
+{
+    if( const char* p = checkPluginPreconditions() )
+        throw Exception(p);
+
+    return;
+}
+
+PluginCommand *PluginCommand::cloneImpl() const
+{
+    if( auto p = clonePluginImpl() )
+        return p;
+    else
+        throw Exception("Problem cloning a plugin command");
+}
+
 }

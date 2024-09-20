@@ -138,6 +138,22 @@ inline void CommandDeleter(Command* p)
     return;
 }
 
+class PluginCommand : public Command
+{
+public:
+    virtual ~PluginCommand() = default;
+
+private:
+    virtual const char* checkPluginPreconditions() const noexcept = 0;
+    virtual PluginCommand* clonePluginImpl() const noexcept = 0;
+
+    void checkPreconditionsImpl() const override final;
+    PluginCommand* cloneImpl() const override final;
+};
+
+
+
+
 using CommandPtr = unique_ptr<Command, decltype(&CommandDeleter)>;
 
 inline auto MakeCommandPtr(Command* p)
@@ -152,6 +168,8 @@ auto MakeCommandPtr(Args&&... args)
     static_assert(std::is_base_of<Command, T>::value, "T must be derived from Command");
     return CommandPtr{new T{std::forward<Args>(args)...}, &CommandDeleter};
 }
+
+
 
 }
 #endif //COMMAND_H

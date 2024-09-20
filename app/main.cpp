@@ -126,6 +126,9 @@ try
 
     setupUi(gui, ci);
 
+    PluginLoader loader;
+    set<string> injectedCommands{setupPlugins(gui, loader)};
+
     gui.execute();
 
     app.exec();

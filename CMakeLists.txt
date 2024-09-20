@@ -2,13 +2,13 @@ cmake_minimum_required(VERSION 3.22)
 #-------------------DEFINE ZONE----------------------#
 ##INFORMATION AND CONFIGURATION
 project(
-        "Template"
+        "Calculator"
         VERSION 1.0.0
         LANGUAGES C CXX)
 
 # Project/Library Names
 set(EXECUTABLE_NAME "main")
-set(LIBRARIES utilities stack )
+set(LIBRARIES utilities stack external)
 
 # Global CMake variables are set here
 set(CMAKE_CXX_STANDARD 17)
@@ -40,11 +40,11 @@ option(ENABLE_WARNINGS_AS_ERRORS "Enable to treat warnings as errors." OFF)
 option(ENABLE_TESTING "Enable a Unit Testing build." ON)
 option(ENABLE_COVERAGE "Enable a Code Coverage build." OFF)
 
-option(ENABLE_CLANG_TIDY "Enable to add clang tidy." ON)
+option(ENABLE_CLANG_TIDY "Enable to add clang tidy." OFF)
 
 option(ENABLE_SANITIZE_ADDR "Enable address sanitize." OFF)
 option(ENABLE_SANITIZE_UNDEF "Enable undefined sanitize." OFF)
-option(ENABLE_SANITIZE_LEAK "Enable leak sanitize (Gcc/Clang only)." ON)
+option(ENABLE_SANITIZE_LEAK "Enable leak sanitize (Gcc/Clang only)." OFF)
 option(ENABLE_SANITIZE_THREAD "Enable thread sanitize (Gcc/Clang only)." OFF)
 
 option(ENABLE_CLANG_FORMAT "Enable to add clang-format." OFF)
