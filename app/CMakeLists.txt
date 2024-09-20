@@ -2,6 +2,7 @@
 set(APP_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/main.cpp")
 set(LIBRARIES
         controller
+        plugin
         Qt::Core
 )
 #----------------------------------------------------#

@@ -10,7 +10,6 @@ project(
 set(EXECUTABLE_NAME "main")
 set(LIBRARIES utilities stack )
 
-
 # Global CMake variables are set here
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -24,6 +23,13 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 set(CMAKE_AUTOMOC ON)
+
+
+if(UNIX)
+    add_definitions(-DPOSIX)
+elseif(WIN32)
+    add_definitions(-DWIN32)
+endif()
 #----------------------------------------------------#
 
 option(USE_CPM "Whether to use CPM." ON)
