@@ -1,7 +1,18 @@
-# Template
+# Calculator
+
+## Brief
+**This is a calculator built on the idea of [Reverse Polish notation](https://en.wikipedia.org/wiki/Reverse_Polish_notation)**
+### Demo
+Example of calculating 2 power 3:
+
+<img src="demo/Calculator.gif" alt="Calculator Operation" width="200"/>
 
 
-**Template project information**.
+
+### Technical
+- Language: C++17 standard
+- External libraries: Qt, Catch2, fmt
+- Programming technique: OOAD, Architecture design, Design patterns, Plugin development
 - External libraries installed and managed by
   - [CPM](https://github.com/cpm-cmake/CPM.cmake) Package Manager
 - Unit testing using [Catch2](https://github.com/catchorg/Catch2) v2
@@ -38,10 +49,7 @@ Library code goes into [src/](src/), main program code in [app/](app) and tests 
 
 - CMake 3.21+
 - GNU Makefile
-- Doxygen
 - MSVC 2017 (or higher), G++9 (or higher), Clang++9 (or higher)
-- Optional: Code Coverage (only on GNU|Clang): gcovr
-- Optional: Makefile, Doxygen
 
 ## Building
 
@@ -64,23 +72,6 @@ cd app
 ```shell
 cmake -H. -Bbuild -DCMAKE_BUILD_TYPE="Debug"
 cmake --build build --config Debug
-cd build
-ctest .
-```
-
-- Documentation
-
-```shell
-cd build
-cmake -DCMAKE_BUILD_TYPE=Debug ..
-cmake --build . --config Debug --target docs
-```
-
-- Code Coverage (Unix only)
-
-```shell
-cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug -DENABLE_COVERAGE=On
-cmake --build build --config Debug --target coverage -j4
 cd build
 ctest .
 ```
