@@ -59,8 +59,10 @@ First, clone this repo and do the preliminary work:
 
 
 - App Executable
-*Edit Qt path in CmakeList.txt*
 
+Step 1: Edit Qt path in CmakeList.txt
+
+Step 2:
 ```shell
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release ..
