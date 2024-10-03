@@ -7,7 +7,7 @@ project(
         LANGUAGES C CXX)
 
 # Project/Library Names
-set(EXECUTABLE_NAME "main")
+set(EXECUTABLE_NAME "Calculator")
 set(LIBRARIES utilities stack external)
 
 # Global CMake variables are set here
