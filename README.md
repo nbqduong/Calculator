@@ -50,6 +50,7 @@ Library code goes into [src/](src/), main program code in [app/](app) and tests 
 - CMake 3.21+
 - GNU Makefile
 - MSVC 2017 (or higher), G++9 (or higher), Clang++9 (or higher)
+- Qt 6.7.2
 
 ## Building
 
