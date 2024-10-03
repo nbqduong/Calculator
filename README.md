@@ -59,6 +59,7 @@ First, clone this repo and do the preliminary work:
 
 
 - App Executable
+*Edit Qt path in CmakeList.txt*
 
 ```shell
 cd build
